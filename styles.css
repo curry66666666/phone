@@ -1,0 +1,610 @@
+/* 全局样式 */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* 背景颜色 */
+  color: #333;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('4cf02bdc287d5af2cbab8e4cafeaa116_1.jpg');
+  background-size: cover; /* 覆盖整个背景 */
+  background-position: center; /* 居中显示 */
+  background-attachment: fixed; /* 固定背景，不随页面滚动 */
+}
+
+/* 导航栏样式 */
+.navbar {
+  background: linear-gradient(45deg, #ff66cc, #33ccff); /* 改为更艳丽的粉色到蓝色渐变背景 */
+  color: white;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar ul li a:hover::before {
+  opacity: 0.5;
+}
+
+.navbar ul li a:hover {
+  color: #ffe6f2; /* 悬停时文字颜色改为更柔和的粉色 */
+  text-shadow: 0 0 8px #ff66cc, 0 0 10px #33ccff; /* 增强霓虹灯文字阴影效果，颜色更艳丽 */
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar ul li a:active {
+  text-shadow: 0 0 5px #ffffff, 0 0 7px #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar ul li a i {
+  margin-right: 8px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.navbar ul li a:hover i {
+  transform: scale(1.2);
+  color: #ff66cc; /* 悬停时图标颜色改为粉色 */
+}
+
+/* 搜索栏样式 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border 0.3s ease, background-color 0.3s ease;
+  margin-right: 15px;
+}
+
+.search-bar:hover {
+  border: 2px solid #ff66cc; /* 鼠标悬停时边框颜色改为粉色 */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  width: 200px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+  color: #ff66cc; /* 聚焦时文字颜色改为粉色 */
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  background: linear-gradient(to right, #ff66cc, #33ccff); /* 按钮背景采用粉色到蓝色渐变 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(to right, #33ccff, #ff66cc); /* 鼠标悬停时背景颜色反转 */
+  transform: scale(1.1);
+}
+
+.search-bar button:active {
+  transform: scale(0.9);
+}
+
+/* 轮播图样式 */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 60px;
+  background: linear-gradient(45deg, #f5d0ff, #c2e5ff); /* 轮播图背景改为更艳丽的浅色系渐变 */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+/* 热门测评手机列表样式 */
+.hot-phones-section {
+  margin-top: 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.phone-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.phone-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.phone-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 4px solid #ff66cc; /* 手机卡片图片底部边框改为粉色 */
+  transition: border-bottom-color 0.3s ease;
+}
+
+.phone-card-img:hover {
+  border-bottom-color: #33ccff; /* 悬停时边框颜色改为蓝色 */
+}
+
+.phone-card-title {
+  margin: 15px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.phone-card-description {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.phone-card-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #ff66cc, #33ccff); /* 链接按钮采用粉色到蓝色渐变 */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.phone-card-link:hover {
+  background: linear-gradient(to right, #33ccff, #ff66cc); /* 悬停时背景颜色反转 */
+  transform: scale(1.05);
+}
+
+/* 排行榜样式 */
+.ranking-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.ranking-col {
+  flex: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ranking-col:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ranking-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+
+.ranking-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+  position: relative;
+  padding-left: 20px;
+}
+
+.ranking-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff66cc; /* 排行榜列表项装饰小圆点改为粉色 */
+}
+
+.phone-link {
+  color: #33ccff; /* 排行榜链接文字颜色改为蓝色 */
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.phone-link:hover {
+  color: #ff66cc; /* 悬停时链接文字颜色改为粉色 */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 第一排三个元素 */
+.ranking-col:nth-child(-n+3) {
+  flex-basis: calc(30% - 20px);
+}
+
+/* 第二排两个元素 */
+.ranking-col:nth-child(n+4) {
+  flex-basis: calc(49% - 20px);
+  margin-top: 20px;
+}
+
+/* 确保第二排两个元素在第一排三个元素下面 */
+.ranking-row::after {
+  content: '';
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+/* 热点资讯样式 */
+.hot-news-section {
+  margin-top: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+.hot-news-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.hot-news-list li {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hot-news-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hot-news-link {
+  color: #33ccff; /* 热点资讯链接文字颜色改为蓝色 */
+  text-decoration: none;
+  font-size: 25px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  display: block;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.hot-news-link:hover {
+  color: #ff66cc; /* 悬停时文字颜色改为粉色 */
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+/* 弹窗样式 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  max-height: 90%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 居中对齐 */
+  justify-content: center; /* 居中对齐 */
+}
+
+.ad-copy {
+  margin-bottom: 20px; /* 与图片之间的间距 */
+  text-align: center; /* 文字居中 */
+  font-size: 20px; /* 字体大小 */
+  color: #333; /* 字体颜色 */
+  font-weight: bold; /* 字体加粗 */
+  width: 100%; /* 占满整个弹窗宽度 */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* 弹窗背景遮罩样式 */
+#ad-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+/* 全局样式 - 日间模式 */
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+/* 夜间模式样式 */
+body.night-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.night-mode .navbar {
+  background: #222;
+}
+
+.night-mode .phone-card {
+  background-color: #444;
+}
+
+.night-mode .ranking-col {
+  background-color: #444;
+}
+
+.night-mode .hot-news-list li {
+  background-color: #444;
+}
+/* 夜间模式切换按钮样式 */
+#night-mode-toggle {
+  background-color: #33ccff; /* 按钮背景颜色 */
+  color: #fff; /* 文字颜色 */
+  padding: 10px 15px; /* 内边距 */
+  border-radius: 5px; /* 边框圆角 */
+  border: none; /* 无边框 */
+  cursor: pointer; /* 鼠标悬停时显示指针 */
+  font-size: 16px; /* 字体大小 */
+  transition: background-color 0.3s ease; /* 过渡效果 */
+}
+
+#night-mode-toggle i {
+  margin-right: 8px; /* 图标右侧间距 */
+}
+
+#night-mode-toggle:hover {
+  background-color: #ff66cc; /* 鼠标悬停时背景颜色 */
+}
+
+.navbar ul li #night-mode-toggle {
+  background-color: #33ccff; /* 夜间模式按钮背景颜色 */
+  color: #fff; /* 文字颜色 */
+  padding: 10px 15px; /* 内边距 */
+  border-radius: 5px; /* 边框圆角 */
+  border: none; /* 无边框 */
+  cursor: pointer; /* 鼠标悬停时显示指针 */
+  font-size: 16px; /* 字体大小 */
+  transition: background-color 0.3s ease; /* 过渡效果 */
+}
+
+.navbar ul li #night-mode-toggle i {
+  margin-right: 8px; /* 图标右侧间距 */
+}
+
+.navbar ul li #night-mode-toggle:hover {
+  background-color: #ff66cc; /* 鼠标悬停时背景颜色 */
+}
+/* 悬浮球样式 */
+.chat-button {
+  position: fixed;
+  bottom: 85%;
+  right: 20px; /* 距离右侧20px */
+  width: 40px; /* 宽度缩小 */
+  height: 40px; /* 高度缩小 */
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* 确保悬浮球的z-index高于弹出层 */
+  transform: translateY(50%); /* 垂直居中 */
+}
+
+/* 微信二维码弹出层样式 */
+.wechat-qrcode {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto; /* 自动宽度 */
+  max-width: 80%; /* 最大宽度调整为屏幕的80% */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  display: none; /* 默认不显示 */
+}
+
+/* 弹出层中的图片样式 */
+.wechat-qrcode img {
+  max-width: 50%; /* 设置图片最大宽度为弹出层宽度的50% */
+  height: auto; /* 高度自适应，保持图片宽高比 */
+}
+
+/* 关闭按钮样式 */
+.close-qrcode {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 关闭按钮样式 */
+#close-qrcode {
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* 手机端样式 */
+@media (max-width: 767px) {
+  .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space - between;
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+  .navbar a {
+        flex: 1;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 8px; /* 减小字体大小 */
+    }
+
+  .search-box {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #e9ecef;
+        margin-top: 10px;
+    }
+
+    /* 使用更具体的选择器确保轮播图样式生效 */
+  .search-box {
+        width: 100%;
+        margin-top: 20px; /* 增加轮播图与搜索框的间距 */
+    }
+
+  .carousel-image {
+        width: 100%;
+        height: auto;
+        margin-top: 118px;
+        
+    }
+}

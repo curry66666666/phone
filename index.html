@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机机bond</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+  
+ 
+  <style>
+    /* 弹窗样式 */
+    #ad-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 300px;
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 广告弹窗 -->
+<div id="ad-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="ad-copy">华为mate70  致万物，向新生</div> <!-- 广告词容器 -->
+    <img src="image.png" alt="广告图片" style="width:100%; height:auto;">
+  </div>
+</div>
+
+<!-- 悬浮球 -->
+<div id="chat-button" class="chat-button">
+  <img src="image2.png" alt="微信图标" />
+</div>
+
+<!-- 微信二维码弹出层 -->
+<div id="wechat-qrcode" class="wechat-qrcode">
+  <img src="4c358f00b332818424ce22b60f6bd4a.jpg" alt="微信二维码" />
+  <span class="close-qrcode">&times;</span>
+</div>
+
+
+<nav class="navbar">
+  <a href="#" class="navbar-toggle" onclick="toggleNavbar()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <ul id="navMenu" class="nav-menu">
+    <!-- 导航项 -->
+  </ul>
+</nav>
+
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="#" class="navbar-toggle" onclick="toggleNavbar()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <ul id="navMenu" class="nav-menu">
+      <!-- 导航项 -->
+    </ul>
+  
+    <ul>
+      <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_first&outBizNo=2396" target="_blank"><i class="fa fa-android"></i> 手机系统</a></li>
+      <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_first&outBizNo=1790" target="_blank"><i class="fa fa-building"></i> 品牌合集</a></li>
+      <li><a href="https://t.shihuo.cn/573.html" target="_blank"><i class="fa fa-shopping-cart"></i> 识货app</a></li>
+      
+      <li><a id="night-mode-toggle" href="#" target="_blank"><i class="fa fa-moon"></i> 夜间模式</a></li>
+    </ul>
+    <form action="https://www.zhihu.com/search" method="GET" class="search-bar" target="_blank">
+      <input type="text" name="q" placeholder="搜索知乎...">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </nav>
+  
+  <!-- 轮播图 -->
+  <div class="carousel">
+    <img src="b14b1d0f164840129c8dc9f9edceadcc.webp" alt="手机1" class="carousel-image active">
+    <img src="AA1tmdIe.jpg" alt="手机2" class="carousel-image">
+    <img src="OIP-C.jpg" alt="手机3" class="carousel-image">
+  </div>
+
+  <!-- 热门测评手机列表 -->
+  <div class="hot-phones-section">
+    <h2 class="section-title">热门测评手机</h2>
+    <div class="phone-card-container">
+      <!-- 手机1卡片 -->
+      <article class="phone-card">
+        <img src="微信图片_20241109222938.jpg" alt="手机1" class="phone-card-img">
+        <h3 class="phone-card-title">真我gt7pro</h3>
+        <p class="phone-card-description">性价比之王</p>
+        <a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2607398" target="_blank" class="phone-card-link">查看详细测评</a>
+      </article>
+
+      <!-- 手机2卡片 -->
+      <article class="phone-card">
+        <img src="微信图片_20241109222931.jpg" alt="手机2" class="phone-card-img">
+        <h3 class="phone-card-title">iqoo 13</h3>
+        <p class="phone-card-description">游戏党福音</p>
+        <a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2596251" target="_blank" class="phone-card-link">查看详细测评</a>
+      </article>
+
+      <!-- 手机3卡片 -->
+      <article class="phone-card">
+        <img src="微信图片_20241109222914.jpg" alt="手机3" class="phone-card-img">
+        <h3 class="phone-card-title">小米15pro</h3>
+        <p class="phone-card-description">水桶机</p>
+        <a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2580070" target="_blank" class="phone-card-link">查看详细测评</a>
+      </article>
+    </div>
+  </div>
+
+  <!-- 排行榜 -->
+  <div class="rankings-section">
+    <h2 class="section-title">手机排行榜</h2>
+    <div class="ranking-row">
+      <!-- 评分榜 -->
+      <div class="ranking-col">
+        <h3 class="ranking-title">评分榜</h3>
+        <ul class="ranking-list">
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=56064" target="_blank" class="phone-link">oppo find N3</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2596251" target="_blank" class="phone-link">iqoo 13</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=1623764" target="_blank" class="phone-link">荣耀magic6 pro</a></li>
+        </ul>
+      </div>
+      <!-- soc榜 -->
+      <div class="ranking-col">
+        <h3 class="ranking-title">soc榜</h3>
+        <ul class="ranking-list">
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2576486" target="_blank" class="phone-link">骁龙8 Elite</a></li>
+          <li><a href="https://www.zhihu.com/question/794496200/answer/4981863483?utm_psn=1838666751749009409" target="_blank" class="phone-link">天玑9400</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2505626" target="_blank" class="phone-link">A18pro</a></li>
+        </ul>
+      </div>
+      <!-- 性能榜 -->
+      <div class="ranking-col">
+        <h3 class="ranking-title">性能榜</h3>
+        <ul class="ranking-list">
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2573776" target="_blank" class="phone-link">一加13</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2596251" target="_blank" class="phone-link">iqoo 13</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2542443" target="_blank" class="phone-link">vivo x200pro</a></li>
+        </ul>
+      </div>
+      <!-- 影像榜 -->
+      <div class="ranking-col">
+        <h3 class="ranking-title">影像榜</h3>
+        <ul class="ranking-list">
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2130163" target="_blank" class="phone-link">华为pura 70ultra</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizNo=2580070" target="_blank" class="phone-link">小米15pro</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizNo=2542443" target="_blank" class="phone-link">vivo x200pro</a></li>
+        </ul>
+      </div>
+      <!-- 性价比榜 -->
+      <div class="ranking-col">
+        <h3 class="ranking-title">性价比榜</h3>
+        <ul class="ranking-list">
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2607398" target="_blank" class="phone-link">真我gt7pro</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2313307" target="_blank" class="phone-link">vivo x200</a></li>
+          <li><a href="https://m.hupu.com/score/detail.html?outBizType=common_second&outBizNo=2596098" target="_blank" class="phone-link">荣耀magic7pro</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 热点资讯 -->
+  <div class="hot-news-section">
+    <h2 class="section-title">热点资讯</h2>
+    <ul class="hot-news-list">
+      <li><a href="https://news.qq.com/rain/a/20241109A03LJY00" target="_blank" class="hot-news-link">骁龙8至尊版到底有多强？一文带你全看懂</a></li>
+      <li><a href="https://news.qq.com/rain/a/20241108A05UY900" target="_blank" class="hot-news-link">AI芯片需求放缓？台积电10月销售额同比增29.2％，为2月以来最低增速</a></li>
+      <li><a href="https://www.zedyer.com/iot-knowledge/harmonyos-vs-openharmony/" target="_blank" class="hot-news-link">鸿蒙系统（HarmonyOS）与OpenHarmony的联系和区别</a></li>
+      <!-- 更多热点新闻 -->
+    </ul>
+  </div>
+
+  <!-- 底部链接 -->
+  <footer>
+    <p>© 机机bond</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    // 控制弹窗显示和隐藏的JavaScript代码
+    window.onload = function() {
+      var modal = document.getElementById("ad-modal");
+      var closeBtn = document.querySelector(".close");
+      
+      // 显示弹窗
+      modal.style.display = "block";
+
+      // 点击关闭按钮隐藏弹窗
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      };
+
+      // 点击弹窗外部区域隐藏弹窗
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    };
+  </script>
+</body>
+
+</html>
